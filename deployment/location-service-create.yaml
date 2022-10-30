@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: location-api-create
+  name: location-create-svc
+spec:
+  ports:
+  - name: "9092"
+    port: 9092
+    targetPort: 9092
+  selector:
+    service: location-api-create
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: location-api-create
+  name: location-api-create
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: location-api-create
+  template:
+    metadata:
+      labels:
+        service: location-api-create
+    spec:
+      containers:
+      - image: hobbeslucretius/udaconnect-location-service-create:latest
+        name: location-api-create-container
+        imagePullPolicy: Always
+        env:
+        - name: KAFKA_URL
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-env
+              key: KAFKA_URL
+        - name: KAFKA_TOPIC
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-env
+              key: KAFKA_TOPIC
+        - name: PYTHONUNBUFFERED
+          value: '0'
+        - name: DB_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: db-env
+              key: DB_USERNAME
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DB_PASSWORD
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: db-env
+              key: DB_NAME
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: db-env
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: db-env
+              key: DB_PORT
+      restartPolicy: Always

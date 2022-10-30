@@ -1,0 +1,134 @@
+openapi: 3.0.0
+info:
+  title: Person Endpoints
+  description: This is a person API from udaconnect-person-service
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/Virtus5/Company/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: http://localhost:30001/
+  description: Person API - udaconnect-person-service Cloud
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+paths:
+  /api/persons:
+    get:
+      tags:
+      - gets people information
+      summary: gets all information of last name, first name, company about people
+      description: |
+        Gets the people information for all users in the PersonAPI
+      operationId: getAllPersons
+      responses:
+        "200":
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+        "400":
+          description: bad input parameter
+        "404":
+          description: company not found
+    post:
+      tags:
+      - creates a new person
+      summary: creates a new person record
+      description: |
+        By passing the correct payload, you can create a
+        new person/user to the system
+      operationId: createPerson
+      requestBody:
+        description: Optional description in *Markdown*
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonNoId'
+        required: true
+      responses:
+        "201":
+          description: created new person
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+        "400":
+          description: bad input parameter
+  /api/persons/{personId}:
+    get:
+      tags:
+      - gets person by id
+      summary: gets person information by id
+      description: |
+        Gets person information by id
+      operationId: getPersonById
+      parameters:
+      - name: personId
+        in: path
+        description: Numeric ID of the user to get
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+        "400":
+          description: bad input parameter
+        "404":
+          description: company not found
+components:
+  schemas:
+    Person:
+      required:
+      - company_name
+      - first_name
+      - id
+      - last_name
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: Amber
+        last_name:
+          type: string
+          example: Ruby
+        company_name:
+          type: string
+          example: Keil
+    PersonNoId:
+      required:
+      - company_name
+      - first_name
+      - last_name
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: Amber
+        last_name:
+          type: string
+          example: Ruby
+        company_name:
+          type: string
+          example: Microsoft

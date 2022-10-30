@@ -1,0 +1,19 @@
+The gRPC documentation for location-listen-svc microservice.
+The request has a payload with id, latitude and longitude.
+
+To make a sample request, please have a look in the file in the modules folder.
+modules/location_service_listen/test_location_grpc.py
+
+This python file is ready to send a request to the location-event service deployed into kubernetes through gRPC 
+
+'''
+message LocationMessage {
+  int32 id = 1;
+  int32 latitude = 2;
+  int32 longitude = 3;
+}
+
+service LocationService {
+  rpc Create(LocationMessage) returns (LocationMessage);
+}
+'''

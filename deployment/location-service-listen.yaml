@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: location-api-listen
+  name: location-listen-svc
+spec:
+  ports:
+  - name: "5000"
+    port: 5000
+    targetPort: 5000
+    nodePort: 30003
+  selector:
+    service: location-api-listen
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: location-api-listen
+  name: location-api-listen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: location-api-listen
+  template:
+    metadata:
+      labels:
+        service: location-api-listen
+    spec:
+      containers:
+      - image: hobbeslucretius/udaconnect-location-service-listen:latest
+        name: location-api-listen-container
+        terminationMessagePath: "location-service-listen-log"
+        imagePullPolicy: Always
+        env:
+        - name: KAFKA_URL
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-env
+              key: KAFKA_URL
+        - name: KAFKA_TOPIC
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-env
+              key: KAFKA_TOPIC
+        - name: PYTHONUNBUFFERED
+          value: '0'
+      restartPolicy: Always
