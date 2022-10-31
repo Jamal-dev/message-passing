@@ -18,8 +18,8 @@ class BaseConfig:
 class DevelopmentConfig(BaseConfig):
     CONFIG_NAME = "dev"
     SECRET_KEY = os.getenv(
-        "DEV_SECRET_KEY", "You can't see California without Marlon Widgeto's eyes"
-    )
+        "DEV_SECRET_KEY",
+        "You can't see California without Marlon Widgeto's eyes")
     DEBUG = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TESTING = False

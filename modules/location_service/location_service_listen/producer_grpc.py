@@ -36,6 +36,7 @@ class Location(location_pb2_grpc.LocationServiceServicer):
 
         return location_pb2.LocationMessage(**request_value)
 
+
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

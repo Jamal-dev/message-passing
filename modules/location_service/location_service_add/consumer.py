@@ -24,17 +24,20 @@ print("Kafka server: %s", KAFKA_SERVER)
 
 consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=[KAFKA_SERVER])
 
+
 def save_db(location):
-    
+
     id = int(location["id"])
     latitude, longitude = int(location["latitude"]), int(location["longitude"])
-    table_insert = f'''INSERT INTO 
-                       location (person_id, coordinate) VALUES 
+    table_insert = f'''INSERT INTO
+                       location (person_id, coordinate) VALUES
                        ({id}, ST_Point({latitude}, {longitude}))'''
 
     logging.debug(f"insert command: {table_insert}")
     try:
-        conn = create_engine(f"postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}", echo=True)
+        conn = create_engine(
+            f"postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}",
+            echo=True)
         cur = conn.cursor()
         cur.execute(table_insert)
         cur.close()
@@ -45,9 +48,7 @@ def save_db(location):
             conn.close()
 
 
-
-
 for topic in consumer:
     location_message = json.loads(topic.value.decode())
-    logging.debug (f'location_message = {location_message}')
+    logging.debug(f'location_message = {location_message}')
     save_db(location_message)

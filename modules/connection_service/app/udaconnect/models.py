@@ -35,7 +35,8 @@ class Location(db.Model):
         # Persist binary form into readable text
         if not self._wkt_shape:
             point: Point = to_shape(self.coordinate)
-            # normalize WKT returned by to_wkt() from shapely and ST_AsText() from DB
+            # normalize WKT returned by to_wkt() from shapely and ST_AsText()
+            # from DB
             self._wkt_shape = point.to_wkt().replace("POINT ", "ST_POINT")
         return self._wkt_shape
 
@@ -50,12 +51,12 @@ class Location(db.Model):
     @hybrid_property
     def longitude(self) -> str:
         coord_text = self.wkt_shape
-        return coord_text[coord_text.find(" ") + 1 : coord_text.find(")")]
+        return coord_text[coord_text.find(" ") + 1: coord_text.find(")")]
 
     @hybrid_property
     def latitude(self) -> str:
         coord_text = self.wkt_shape
-        return coord_text[coord_text.find("(") + 1 : coord_text.find(" ")]
+        return coord_text[coord_text.find("(") + 1: coord_text.find(" ")]
 
 
 @dataclass

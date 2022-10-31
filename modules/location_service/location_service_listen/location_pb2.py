@@ -11,120 +11,154 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='location.proto',
-  package='',
-  syntax='proto3',
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0elocation.proto\"D\n\x0fLocationMessage\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x12\n\tlongitude\x18\x8e\x01 \x01(\x03\x12\x11\n\x08latitude\x18\x85\x01 \x01(\x03\"\x07\n\x05\x45mpty\"3\n\x0cLocationList\x12#\n\tlocations\x18\x01 \x03(\x0b\x32\x10.LocationMessage2]\n\x0fLocationService\x12,\n\x06\x43reate\x12\x10.LocationMessage\x1a\x10.LocationMessage\x12\x1c\n\x03Get\x12\x06.Empty\x1a\r.LocationListb\x06proto3'
+    name='location.proto',
+    package='',
+    syntax='proto3',
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+    serialized_pb=b'\n\x0elocation.proto\"D\n\x0fLocationMessage\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x12\n\tlongitude\x18\x8e\x01 \x01(\x03\x12\x11\n\x08latitude\x18\x85\x01 \x01(\x03\"\x07\n\x05\x45mpty\"3\n\x0cLocationList\x12#\n\tlocations\x18\x01 \x03(\x0b\x32\x10.LocationMessage2]\n\x0fLocationService\x12,\n\x06\x43reate\x12\x10.LocationMessage\x1a\x10.LocationMessage\x12\x1c\n\x03Get\x12\x06.Empty\x1a\r.LocationListb\x06proto3'
 )
 
 
-
-
 _LOCATIONMESSAGE = _descriptor.Descriptor(
-  name='LocationMessage',
-  full_name='LocationMessage',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='LocationMessage.id', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='longitude', full_name='LocationMessage.longitude', index=1,
-      number=142, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='latitude', full_name='LocationMessage.latitude', index=2,
-      number=133, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=18,
-  serialized_end=86,
+    name='LocationMessage',
+    full_name='LocationMessage',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='id',
+            full_name='LocationMessage.id',
+            index=0,
+            number=1,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key),
+        _descriptor.FieldDescriptor(
+            name='longitude',
+            full_name='LocationMessage.longitude',
+            index=1,
+            number=142,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key),
+        _descriptor.FieldDescriptor(
+            name='latitude',
+            full_name='LocationMessage.latitude',
+            index=2,
+            number=133,
+            type=3,
+            cpp_type=2,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=18,
+    serialized_end=86,
 )
 
 
 _EMPTY = _descriptor.Descriptor(
-  name='Empty',
-  full_name='Empty',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=88,
-  serialized_end=95,
+    name='Empty',
+    full_name='Empty',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+    ],
+    extensions=[
+    ],
+    nested_types=[],
+    enum_types=[
+    ],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[
+    ],
+    serialized_start=88,
+    serialized_end=95,
 )
 
 
 _LOCATIONLIST = _descriptor.Descriptor(
-  name='LocationList',
-  full_name='LocationList',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='locations', full_name='LocationList.locations', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=97,
-  serialized_end=148,
+    name='LocationList',
+    full_name='LocationList',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='locations',
+            full_name='LocationList.locations',
+            index=0,
+            number=1,
+            type=11,
+            cpp_type=10,
+            label=3,
+            has_default_value=False,
+            default_value=[],
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=97,
+    serialized_end=148,
 )
 
 _LOCATIONLIST.fields_by_name['locations'].message_type = _LOCATIONMESSAGE
@@ -134,59 +168,58 @@ DESCRIPTOR.message_types_by_name['LocationList'] = _LOCATIONLIST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 LocationMessage = _reflection.GeneratedProtocolMessageType('LocationMessage', (_message.Message,), {
-  'DESCRIPTOR' : _LOCATIONMESSAGE,
-  '__module__' : 'location_pb2'
-  # @@protoc_insertion_point(class_scope:LocationMessage)
-  })
+    'DESCRIPTOR': _LOCATIONMESSAGE,
+    '__module__': 'location_pb2'
+    # @@protoc_insertion_point(class_scope:LocationMessage)
+})
 _sym_db.RegisterMessage(LocationMessage)
 
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
-  'DESCRIPTOR' : _EMPTY,
-  '__module__' : 'location_pb2'
-  # @@protoc_insertion_point(class_scope:Empty)
-  })
+    'DESCRIPTOR': _EMPTY,
+    '__module__': 'location_pb2'
+    # @@protoc_insertion_point(class_scope:Empty)
+})
 _sym_db.RegisterMessage(Empty)
 
 LocationList = _reflection.GeneratedProtocolMessageType('LocationList', (_message.Message,), {
-  'DESCRIPTOR' : _LOCATIONLIST,
-  '__module__' : 'location_pb2'
-  # @@protoc_insertion_point(class_scope:LocationList)
-  })
+    'DESCRIPTOR': _LOCATIONLIST,
+    '__module__': 'location_pb2'
+    # @@protoc_insertion_point(class_scope:LocationList)
+})
 _sym_db.RegisterMessage(LocationList)
 
 
-
 _LOCATIONSERVICE = _descriptor.ServiceDescriptor(
-  name='LocationService',
-  full_name='LocationService',
-  file=DESCRIPTOR,
-  index=0,
-  serialized_options=None,
-  create_key=_descriptor._internal_create_key,
-  serialized_start=150,
-  serialized_end=243,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Create',
-    full_name='LocationService.Create',
+    name='LocationService',
+    full_name='LocationService',
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_LOCATIONMESSAGE,
-    output_type=_LOCATIONMESSAGE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Get',
-    full_name='LocationService.Get',
-    index=1,
-    containing_service=None,
-    input_type=_EMPTY,
-    output_type=_LOCATIONLIST,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-])
+    serialized_start=150,
+    serialized_end=243,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='Create',
+            full_name='LocationService.Create',
+            index=0,
+            containing_service=None,
+            input_type=_LOCATIONMESSAGE,
+            output_type=_LOCATIONMESSAGE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Get',
+            full_name='LocationService.Get',
+            index=1,
+            containing_service=None,
+            input_type=_EMPTY,
+            output_type=_LOCATIONLIST,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_LOCATIONSERVICE)
 
 DESCRIPTOR.services_by_name['LocationService'] = _LOCATIONSERVICE
