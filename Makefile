@@ -3,7 +3,7 @@ MOUDULE_LOCATION_ADD := modules/location_service/location_service_add
 MOUDULE_LOCATION_LISTEN := modules/location_service/location_service_listen
 MOUDULE_PERSON := modules/person_service
 
-.PHONY = all clean kc loc res restart
+.PHONY = all clean kc loc res restart kafka deploy
 all:
 	@echo "Building $(MOUDULE_CONNECTION) "
 	make -C $(MOUDULE_CONNECTION)
@@ -35,3 +35,9 @@ restart:
 res:
 	@echo "Restarting all services and pods"
 	kubectl -n default rollout restart deploy
+kafka:
+	@echo "Starting zookeeper and kafka"
+	kubectl apply -f kafka
+deploy:
+	@echo "Starting deployments"
+	kubectl apply -f deployment

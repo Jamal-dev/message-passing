@@ -4,10 +4,7 @@ import logging
 import json
 import os
 from kafka import KafkaProducer
-# from confluent_kafka import Producer
-import socket
-conf = {"bootstrap.servers": "kafka-service:9092", 
-        "client.id": socket.gethostname()}
+
 
 import grpc
 

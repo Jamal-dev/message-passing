@@ -1,0 +1,14 @@
+Mobile user sends the location by using location-listening-microservice. This communication has been established by using gRPc.
+
+The reason of using this service is because of its strict checking on the data. We can expect from user to send string or wrong chracters which would be stopped immediately by using gRPc. 
+
+Thereafter KAFKA service is used. The reason for using it is because of its high throughput and low latency, and we can expect a high volume of concurrent users.
+
+After that, there is location-create srvice which is KAFKA service by which we create the entry into the location database.
+
+Similarly, we have person microservice wihich is also a RESTFul API. This service has both get and post method. 
+
+This service is then connect to React front end, and it's connected through RESTFul API. 
+
+The reason of using RESTFul API is that we can later use the cache to improve the speed. Another reason is that REST is more prevalent, and we can expect that people are cofortable with it. 
+
