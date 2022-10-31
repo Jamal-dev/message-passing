@@ -6,10 +6,7 @@ from sqlalchemy import create_engine
 
 KAFKA_SERVER = os.environ["KAFKA_URL"]
 TOPIC_NAME = os.environ["KAFKA_TOPIC"]
-# TOPIC_NAME = "test"
-# KAFKA_SERVER = "my-release-kafka.default.svc.cluster.local:9092"
 
-# KAFKA_SERVER = "kafka-service:9092"
 
 # database credentials
 DB_USERNAME = os.environ["DB_USERNAME"]
@@ -18,11 +15,6 @@ DB_HOST = os.environ["DB_HOST"]
 DB_PORT = os.environ["DB_PORT"]
 DB_NAME = os.environ["DB_NAME"]
 
-# DB_USERNAME = "ct_admin"
-# DB_PASSWORD = "d293aW1zb3NlY3VyZQ=="
-# DB_HOST = "postgres"
-# DB_PORT = "5432"
-# DB_NAME = "geoconnections"
 
 logging.info("Kafka topic: %s", TOPIC_NAME)
 logging.info("Kafka server: %s", KAFKA_SERVER)

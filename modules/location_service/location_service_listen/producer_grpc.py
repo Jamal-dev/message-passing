@@ -13,14 +13,12 @@ import location_pb2_grpc
 
 TOPIC_NAME = os.environ["KAFKA_TOPIC"]
 KAFKA_SERVER = os.environ["KAFKA_URL"]
-# TOPIC_NAME = "test"
-# KAFKA_SERVER = "my-release-kafka.default.svc.cluster.local:9092"
-# KAFKA_SERVER = "kafka-service:9092"
+
 
 logging.info("Kafka topic: %s", TOPIC_NAME)
 logging.info("Kafka server: %s", KAFKA_SERVER)
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
-# producer = Producer(conf)
+
 
 class Location(location_pb2_grpc.LocationServiceServicer):
     def Create(self, request, context):
@@ -35,9 +33,7 @@ class Location(location_pb2_grpc.LocationServiceServicer):
         logging.info('kafka_data ', kafka_data)
         # Send the data to Kafka
         producer.send('location', kafka_data)
-        # producer.produce("test", 
-        #                 key="message", 
-        #                 value=request_value)
+
         return location_pb2.LocationMessage(**request_value)
 
 if __name__ == '__main__':
